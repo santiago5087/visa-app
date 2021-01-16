@@ -1,0 +1,39 @@
+.back-eagle {
+  background-image: url('/assets/images/aguila-fondo2.jpg');
+  height: 70%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.left-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.main-title {
+  font-size: 80px;
+  font-weight: bold;
+  color: wheat;
+}
+
+.secondary-title {
+  color: wheat;
+  margin-bottom: 30px;
+}
+
+.section2 {
+  justify-content: space-around;
+  margin: 50px 20px;
+}
+
+.sub-section2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
