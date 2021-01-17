@@ -1,0 +1,62 @@
+<div class="row section2">
+  <div class="col-md-5 col-sm-10 sub-section2">
+    <h2>Empezar Tramites de Visa Americana</h2>
+    <i class="far fa-clock fa-3x" style="color: #04336e;"></i>
+    <p>Empiece su trámite de visa americana, es importante que seleccione el tipo de visa que tramitará. Por favor identifique bien que trámite realizará. Para asesoría con un experto escribir a soporte</p>
+
+    <form [formGroup]="empezarTramiteForm" (ngSubmit)="empezarSubmit()" class="d-grid forms">
+      <div class="mb-3">
+        <label for="tipo-tramite1" class="form-label">
+          Tipo de trámite:
+        </label>
+        <select class="form-select" formControlName="tipoTramite" id="tipo-tramite1">
+          <option *ngFor="let tramite of tipoTramite" 
+                  [value]="tramite">{{ tramite }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="tipo-tramite2" class="form-label">
+          Tipo de visa:
+        </label>
+        <select type="email" class="form-select" formControlName="tipoVisa" id="tipo-tramite2">
+          <option *ngFor="let visa of tipoVisa" 
+                  [value]="visa">{{ visa }}</option>
+        </select>
+      </div>
+
+      <button class="btn btn-success" type="submit">
+        <i class="fas fa-user-plus"></i>
+        Inicar trámite
+      </button>
+    </form>
+  </div>
+
+  <div class="col-md-5 col-sm-10 sub-section2">
+    <h2>Verificar Estado de Mi Visa Americana</h2>
+    <i class="far fa-check-circle fa-3x" style="color: #04336e;"></i>
+    <p>¿Ya inició su tramite y tiene una cuenta? Coloca los datos con los que se registró a continuación, con ello podrá examinar el Status de su solicitud de Visa Americana, si aún no tiene cuenta registre su trámite en el recuadro de la izquieda.</p>
+
+    <form [formGroup]="verficarEstadoForm" (ngSubmit)="verificarSubmit()" class="d-grid forms">
+      <div class="mb-3">
+        <label for="verificar-estado1" class="form-label">
+          Correo electrónico:
+        </label>
+        <input type="email" class="form-control" formControlName="email" id="verificar-estado1">
+      </div>
+
+      <div class="mb-3">
+        <label for="verificar-estado2" class="form-label">
+          Contraseña:
+        </label>
+        <input type="password" class="form-control" formControlName="password" id="verificar-estado2">
+      </div>
+
+      <button class="btn" type="submit"
+              style="background-color: #04336e; border-color: #04336e; color: white;">
+        <i class="fas fa-sign-in-alt"></i>
+        Ingresar Panel
+      </button>
+    </form>
+  </div>
+</div>
