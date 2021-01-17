@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  margin: 80px 50px;
+  width: 100%;
+  max-width: 600px;
+}
