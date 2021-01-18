@@ -1,6 +1,8 @@
-<div class="container">
+<div class="container" style="margin: 50px auto;">
   <h5>¡Registro para Trámite de Visa Americana!</h5>
-  <p>Iniciaremos con su trámite para <b>{{ visa }}</b> tipo <b>{{ tramite }}</b>.</p>
+  <p class="mb-4">
+    Iniciaremos con su trámite para <b>{{ visa }}</b> tipo <b>{{ tramite }}</b>.
+  </p>
 
   <form style="font-size: small;">
     <div class="row">
@@ -28,11 +30,40 @@
         </div>
         <div class="mb-3">
           <label for="fechaNac" class="form-label">
-            Nacionalidad<span class="text-danger">*:</span>
+            Fecha de nacimiento<span class="text-danger">*:</span>
           </label>
-          <input matInput matDatepicker="picker">
-          <mat-datepicker-toggle matSuffix for="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <input  type="date" class="form-control form-control-sm" id="fechaNac">
+        </div>
+        <div class="mb-3">
+          <label for="cel" class="form-label">
+            Celular (10 dígitos)<span class="text-danger">*:</span>
+          </label>
+          <input  type="number" class="form-control form-control-sm" id="cel" 
+                  placeholder="Ingrese su número de celular">
+        </div>
+        <div class="mb-3">
+          <label for="direccion" class="form-label">
+            Dirección<span class="text-danger">*:</span>
+          </label>
+          <input  type="text" class="form-control form-control-sm" id="direccion" 
+                  placeholder="Ingrese su calle y número">
+        </div>
+        <div class="mb-3">
+          <label for="cod-postal" class="form-label">
+            Código Postal<span class="text-danger">*:</span>
+          </label>
+          <input  type="number" class="form-control form-control-sm" id="cod-postal" 
+                  placeholder="Código Postal">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">
+            Viajando por<span class="text-danger">*:</span>
+          </label>
+          <select type="text" class="form-select form-select-sm">
+            <option value="Aire">Aire</option>
+            <option value="Tierra">Tierra</option>
+            <option value="Mar">Mar</option>
+          </select>
         </div>
       </div>
 
@@ -58,7 +89,47 @@
           <input  type="password" class="form-control form-control-sm" id="contra2" 
                   placeholder="Repita contraseña">
         </div>
+        <div class="mb-3">
+          <label class="form-label">
+            Tiempo de estadía<span class="text-danger">*:</span>
+          </label>
+          <select type="text" class="form-select form-select-sm">
+            <option value="Menos de 90 días en EE.UU">Menos de 90 días en EE.UU</option>
+            <option value="Más de 90 días en EE.UU">Más de 90 días en EE.UU</option>
+            <option value="Indefinido">Indefinido</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">
+            Velocidad<span class="text-danger">*:</span>
+          </label>
+          <select type="text" class="form-select form-select-sm">
+            <option value="Trámite Normal">Menos de 90 días en EE.UU</option>
+            <option value="Trámite Urgente">Más de 90 días en EE.UU</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">
+            Número de trámites<span class="text-danger">*:</span>
+          </label>
+          <select type="text" class="form-select form-select-sm">
+            <option value="1 Trámite (Yo solo)">1 Trámite (Yo solo)</option>
+            <option *ngFor="let i of [2,3,4,5,6]" 
+                    [value]="i + ' Trámites'">{{ i }} Trámites</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Número pasaporte</label>
+          <input  type="text" class="form-control form-control-sm" 
+                  placeholder="Ingrese el número de su pasaporte">
+        </div>
+        <button type="submit" class="btn btn-success" style="margin-top: 20px;">
+          <i class="far fa-check-square"></i>
+          Validar registro
+        </button>
       </div>
     </div>
   </form>  
 </div>
+
+<app-footer></app-footer>

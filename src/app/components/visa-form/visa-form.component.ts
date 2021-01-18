@@ -10,6 +10,7 @@ export class VisaFormComponent implements OnInit {
 
   visa: string;
   tramite: string;
+  maxYear = new Date().getFullYear();
 
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(params => {
