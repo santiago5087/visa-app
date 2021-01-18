@@ -1,0 +1,64 @@
+<div class="container">
+  <h5>¡Registro para Trámite de Visa Americana!</h5>
+  <p>Iniciaremos con su trámite para <b>{{ visa }}</b> tipo <b>{{ tramite }}</b>.</p>
+
+  <form style="font-size: small;">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <div class="mb-3">
+          <label for="nombres" class="form-label">
+            Nombre(s)<span class="text-danger">*:</span>
+          </label>
+          <input  type="text" class="form-control form-control-sm" id="nombres" 
+                  placeholder="Ingrese sus nombres">
+        </div>
+        <div class="mb-3">
+          <label for="apellidos" class="form-label">
+            Apellido(s)<span class="text-danger">*:</span>
+          </label>
+          <input  type="text" class="form-control form-control-sm" id="apellidos" 
+                  placeholder="Ingrese sus apellidos">
+        </div>
+        <div class="mb-3">
+          <label for="nacionalidad" class="form-label">
+            Nacionalidad<span class="text-danger">*:</span>
+          </label>
+          <input  type="text" class="form-control form-control-sm" id="nacionalidad" 
+                  placeholder="Ingrese su nacionalidad">
+        </div>
+        <div class="mb-3">
+          <label for="fechaNac" class="form-label">
+            Nacionalidad<span class="text-danger">*:</span>
+          </label>
+          <input matInput matDatepicker="picker">
+          <mat-datepicker-toggle matSuffix for="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-6">
+        <div class="mb-3">
+          <label for="email" class="form-label">
+            Email<span class="text-danger">*:</span>
+          </label>
+          <input  type="email" class="form-control form-control-sm" id="email" 
+                  placeholder="Ingrese su correo electrónico">
+        </div>
+        <div class="mb-3">
+          <label for="contra" class="form-label">
+            Contraseña<span class="text-danger">*:</span>
+          </label>
+          <input  type="password" class="form-control form-control-sm" id="contra" 
+                  placeholder="Cree una contraseña">
+        </div>
+        <div class="mb-3">
+          <label for="contra2" class="form-label">
+            Confirme contraseña<span class="text-danger">*:</span>
+          </label>
+          <input  type="password" class="form-control form-control-sm" id="contra2" 
+                  placeholder="Repita contraseña">
+        </div>
+      </div>
+    </div>
+  </form>  
+</div>
