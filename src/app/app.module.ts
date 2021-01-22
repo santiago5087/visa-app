@@ -14,6 +14,7 @@ import { SupportComponent } from './components/support/support.component';
 import { LoginComponent } from './components/login/login.component';
 import { VisaFormComponent } from './components/visa-form/visa-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SupportComponent,
     LoginComponent,
     VisaFormComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
