@@ -36,8 +36,18 @@
     
     <div class="col-md-5 col-sm-10 sub-section2">
       <h2>Verificar Estado de Mi Visa Americana</h2>
+      <img src="/assets/images/aguila-img1.jpg" alt="escudo" style="width: 150px;">
+      <div>
+        <span>¿Ya te encuentras registrado? Inicia sesión con tu cuenta en el siguiente botón:</span>
+        <button class="btn-blue" routerLink="/login">
+          <span class="btn-gradient">
+            <i class="fa fa-sign-in-alt"></i>
+          </span>
+          <span class="btn-text">Ingresar Panel</span>
+        </button>
+      </div>
       
-      <form [formGroup]="verficarEstadoForm" (ngSubmit)="verificarSubmit()" class="d-grid forms">
+      <!-- <form [formGroup]="verficarEstadoForm" (ngSubmit)="verificarSubmit()" class="d-grid forms">
         <div class="mb-3">
           <label for="verificar-estado1" class="form-label">
             Correo electrónico:
@@ -58,7 +68,7 @@
         </span>
         <span class="btn-text">Ingresar Panel</span>
       </button>
-    </form>
+    </form> -->
   </div>
 </div>
 </div>
