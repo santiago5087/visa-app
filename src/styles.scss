@@ -5,4 +5,42 @@ html, body {
   // min-width: 100vh;
 }
 html, body { height: 100%; }
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.btn-text {
+  width: 60%;
+  padding: 0 5px;
+  font-size: 16px;
+}
+
+.btn-gradient {    
+  width: 40%;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.15);
+  border-top-right-radius: 60px;
+  padding: 8px 24px 8px 16px;
+  box-shadow: 2px 0px 0px 0px rgba(78, 72, 72, 0.4);
+}
+
+.btn-green{
+  padding: 0px;
+  color: #fff;
+  background-color: #47a447;
+  display: flex;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-blue {
+  padding: 0px;
+  color: #fff;
+  background-color: #0074af;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
