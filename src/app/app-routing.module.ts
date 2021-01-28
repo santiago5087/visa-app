@@ -8,7 +8,8 @@ import { HomeComponent } from './pages/home/home.component';
 
 const routerOptions: ExtraOptions = {
   anchorScrolling: "enabled",
-  scrollPositionRestoration: "enabled"
+  scrollPositionRestoration: "enabled",
+  useHash: true
 }
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro/:tramite/:visa', component: VisaFormComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: '**', redirectTo: '/inicio', pathMatch: 'full' }
+  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
+  { path: '**', redirectTo: 'inicio', pathMatch: 'full' }
 ];
 
 @NgModule({
