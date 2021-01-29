@@ -23,7 +23,7 @@ export class AuthService {
               private router: Router) { }
 
   checkJWT(): void {
-    this.http.get(this.baseURL + 'users/checkJWT')
+    this.http.get(this.baseURL + 'users/checkToken')
       .subscribe((res: any) => {
         console.log("JWT valido!", res);
 
@@ -89,6 +89,7 @@ export class AuthService {
   logIn(email: string, password: string): Observable<any> {
     return this.http.post(this.baseURL + 'users/login', { email, password })
       .pipe(map((res: any) => {
+        console.log("res logIn", res);
         this.storeUserCredentials({ 
           email: res.user.email,
           nombre: res.user.nombre,
