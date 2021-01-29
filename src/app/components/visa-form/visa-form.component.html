@@ -1,7 +1,7 @@
 <div class="container" style="margin: 50px auto;">
   <h5>¡Registro para Trámite de Visa Americana!</h5>
   <p class="mb-4">
-    Iniciaremos con su trámite para <b>{{ tipoVisa }}</b> tipo <b>{{ tipoTramite }}</b>.
+    Iniciaremos con su trámite para <b>{{ tramite.tipoVisa }}</b> tipo <b>{{ tramite.tipoTramite }}</b>.
   </p>
 
   <form style="font-size: small;" #visaForm="ngForm" (ngSubmit)="onSubmit()">
@@ -121,8 +121,8 @@
           </label>
           <select type="text" class="form-select form-select-sm" 
                   name="velocidad" [(ngModel)]="tramite.velocidad">
-            <option value="Trámite Normal">Menos de 90 días en EE.UU</option>
-            <option value="Trámite Urgente">Más de 90 días en EE.UU</option>
+            <option value="Trámite Normal">Trámite Normal</option>
+            <option value="Trámite Urgente">Trámite Urgente</option>
           </select>
         </div>
 
