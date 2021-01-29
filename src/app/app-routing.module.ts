@@ -9,7 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 const routerOptions: ExtraOptions = {
   anchorScrolling: "enabled",
   scrollPositionRestoration: "enabled",
-  useHash: true
+  // useHash: true
 }
 
 const routes: Routes = [
