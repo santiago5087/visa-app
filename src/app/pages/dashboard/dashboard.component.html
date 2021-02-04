@@ -1,3 +1,237 @@
-<p *ngFor="let tramite of tramites">
-  {{ tramite | json }}
-</p>
+<div class="container">
+
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <button class="btn btn-nav" 
+              (click)="changeTemplate(1)">
+        Mis trámites
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="btn btn-nav"
+              (click)="changeTemplate(2)">
+        Mis datos
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="btn btn-nav"
+              (click)="changeTemplate(3)">
+        Nuevo trámite
+      </button>
+    </li>
+  </ul>
+
+  <ng-container *ngIf="misTramitesTemp">
+    <h2 style="margin: 65px 0;">
+      ¡Bienvenido a su panel!
+    </h2>
+    <h3>Trámites abiertos</h3>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Fecha Incio</th>
+          <th scope="col">N° de procesos</th>
+          <th scope="col">Tipo trámite</th>
+          <th scope="col">Tipo visa</th>
+          <th scope="col">Tipo Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tramite of tramites; index as i" style="font-size: small;">
+          <th scope="row">{{ i + 1}}</th>
+          <td>{{ tramite.createdAt | date }}</td>
+          <td>{{ tramite.numeroTramites }}</td>
+          <td>{{ tramite.tipoTramite }}</td>
+          <td>{{ tramite.tipoVisa }}</td>
+          <td>
+            <button class="btn btn-sm btn-primary">Ver trámite</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <ng-container *ngIf="misDatosTemp">
+    <h2 style="margin: 65px 0;">
+      Mis Datos
+    </h2>
+
+    <form #actualizarDatos="ngForm" (ngSubmit)="actualizarUsuario()"
+          style="margin-bottom: 80px;">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+
+          <div class="mb-3">
+            <label class="form-label">
+              Nombre(s)<span class="text-danger">*:</span>
+            </label>
+            <input  type="text" class="form-control form-control-sm" [(ngModel)]="user.nombre" 
+                    name="nombre" placeholder="Ingrese sus nombres" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">
+              Apellido(s)<span class="text-danger">*:</span>
+            </label>
+            <input  type="text" class="form-control form-control-sm" [(ngModel)]="user.apellido"
+                    name="apellido" placeholder="Ingrese sus apellidos">
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">
+              Nacionalidad<span class="text-danger">*:</span>
+            </label>
+            <input  type="text" class="form-control form-control-sm" [(ngModel)]="user.nacionalidad" 
+                    name="nacionalidad" placeholder="Ingrese su nacionalidad">
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">
+              Fecha de nacimiento<span class="text-danger">*:</span>
+            </label>
+            <input  type="date" class="form-control form-control-sm" [(ngModel)]="user.fechaNacimiento" 
+                    name="fechaNacimiento">
+          </div>
+  
+        </div>
+        <div class="col-sm-12 col-md-6">
+          
+          <div class="mb-3">
+            <label class="form-label">
+              Celular (10 dígitos)<span class="text-danger">*:</span>
+            </label>
+            <input  type="number" class="form-control form-control-sm" [(ngModel)]="user.celular" 
+                    name="celular" placeholder="Ingrese su número de celular">
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">
+              Dirección<span class="text-danger">*:</span>
+            </label>
+            <input  type="text" class="form-control form-control-sm" [(ngModel)]="user.direccion"
+                    name="direccion" placeholder="Ingrese su calle y número">
+          </div>
+  
+          <div class="mb-3">
+            <label for="cod-postal" class="form-label">
+              Código Postal<span class="text-danger">*:</span>
+            </label>
+            <input  type="number" class="form-control form-control-sm" [(ngModel)]="user.codigoPostal" 
+                    name="codigoPostal" placeholder="Código Postal">
+          </div>
+
+          <button type="submit" class="btn-blue" style="margin-top: 40px; width: 70%;" 
+                  [disabled]="!actualizarDatos.valid">
+            <span class="btn-gradient">
+              <i class="far fa-check-square fa-lg"></i>
+            </span>
+            <span class="btn-text">Guardar</span>
+          </button>
+
+        </div>
+      </div>
+    </form>
+
+  </ng-container>
+
+  <ng-container *ngIf="nuevoTramiteTemp">
+    <h2 style="margin: 65px 0;">
+      Nuevo Trámite
+    </h2>
+
+    <form #nuevoTramite="ngForm" (ngSubmit)="crearTramite()"
+          style="margin-bottom: 80px;">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+
+          <div class="mb-3">
+            <label class="form-label">
+              Tipo de trámite:
+            </label>
+            <select type="text" class="form-select form-select-sm" 
+                    name="tipoTramite" [(ngModel)]="tramite.tipoTramite">
+              <option *ngFor="let tramite of tipoTramite" [value]="tramite">
+                {{ tramite }}
+              </option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">
+              Tipo de visa:
+            </label>
+            <select type="text" class="form-select form-select-sm" 
+                    name="tipoVisa" [(ngModel)]="tramite.tipoVisa">
+              <option *ngFor="let visa of tipoVisa" [value]="visa">
+                {{ visa }}
+              </option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">
+              Viajando por<span class="text-danger">*:</span>
+            </label>
+            <select type="text" class="form-select form-select-sm" 
+                    name="viajandoPor" [(ngModel)]="tramite.viajandoPor">
+              <option value="Aire">Aire</option>
+              <option value="Tierra">Tierra</option>
+              <option value="Mar">Mar</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="col-sm-12 col-md-6">
+
+          <div class="mb-3">
+            <label class="form-label">
+              Tiempo de estadía<span class="text-danger">*:</span>
+            </label>
+            <select type="text" class="form-select form-select-sm" 
+                    name="tiempoEstadia" [(ngModel)]="tramite.tiempoEstadia">
+              <option value="Menos de 90 días en EE.UU">Menos de 90 días en EE.UU</option>
+              <option value="Más de 90 días en EE.UU">Más de 90 días en EE.UU</option>
+              <option value="Indefinido">Indefinido</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">
+              Velocidad<span class="text-danger">*:</span>
+            </label>
+            <select type="text" class="form-select form-select-sm" 
+                    name="velocidad" [(ngModel)]="tramite.velocidad">
+              <option value="Trámite Normal">Trámite Normal</option>
+              <option value="Trámite Urgente">Trámite Urgente</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">
+              Número de trámites<span class="text-danger">*:</span>
+            </label>
+            <select type="text" class="form-select form-select-sm" 
+                    name="numeroTramites" [(ngModel)]="tramite.numeroTramites">
+              <option value="1 Trámite (Yo solo)">1 Trámite (Yo solo)</option>
+              <option *ngFor="let i of [2,3,4,5,6]" 
+                      [value]="i + ' Trámites'">{{ i }} Trámites</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-blue" style="margin-top: 40px; width: 70%;" 
+                  [disabled]="!nuevoTramite.valid">
+            <span class="btn-gradient">
+              <i class="far fa-check-square fa-lg"></i>
+            </span>
+            <span class="btn-text">Iniciar trámite</span>
+          </button>
+
+        </div>
+      </div>
+
+    </form>
+  </ng-container>
+
+</div>

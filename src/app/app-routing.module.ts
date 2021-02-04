@@ -12,7 +12,7 @@ import { AuthGuardGuard as AuthGuard } from './services/auth-guard.guard';
 const routerOptions: ExtraOptions = {
   anchorScrolling: "enabled",
   scrollPositionRestoration: "enabled",
-  useHash: true
+  // useHash: true
 }
 
 const routes: Routes = [

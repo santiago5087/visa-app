@@ -4,7 +4,7 @@
     Iniciaremos con su trámite para <b>{{ tramite.tipoVisa }}</b> tipo <b>{{ tramite.tipoTramite }}</b>.
   </p>
 
-  <form style="font-size: small;" #visaForm="ngForm" (ngSubmit)="onSubmit()">
+  <form style="font-size: small;" #visaForm="ngForm" (ngSubmit)="onSubmit(visaForm)">
     <div class="row">
       <div class="col-sm-12 col-md-6">
 
@@ -12,68 +12,130 @@
           <label class="form-label">
             Nombre(s)<span class="text-danger">*:</span>
           </label>
-          <input  type="text" class="form-control form-control-sm" [(ngModel)]="user.nombre" 
-                  name="nombre" placeholder="Ingrese sus nombres" required>
+          <input  type="text"
+                  class="form-control form-control-sm"
+                  name="nombre"
+                  placeholder="Ingrese sus nombres"
+                  [(ngModel)]="user.nombre"
+                  #nombre="ngModel" 
+                  [class.is-invalid]="nombre.invalid && nombre.touched"
+                  required>
+          <small  *ngIf="nombre.invalid && nombre.touched"
+                  class="form-text text-danger">El nombre es obligatorio</small>
         </div>
 
         <div class="mb-3">
           <label class="form-label">
             Apellido(s)<span class="text-danger">*:</span>
           </label>
-          <input  type="text" class="form-control form-control-sm" [(ngModel)]="user.apellido"
-                  name="apellido" placeholder="Ingrese sus apellidos">
+          <input  type="text"
+                  class="form-control form-control-sm"
+                  name="apellido"
+                  placeholder="Ingrese sus apellidos" 
+                  [(ngModel)]="user.apellido"
+                  #apellido="ngModel" 
+                  [class.is-invalid]="apellido.invalid && apellido.touched"
+                  required>
+          <small  *ngIf="apellido.invalid && apellido.touched"
+                  class="form-text text-danger">El apellido es obligatorio</small>
         </div>
 
         <div class="mb-3">
           <label class="form-label">
             Nacionalidad<span class="text-danger">*:</span>
           </label>
-          <input  type="text" class="form-control form-control-sm" [(ngModel)]="user.nacionalidad" 
-                  name="nacionalidad" placeholder="Ingrese su nacionalidad">
+          <input  type="text"
+                  class="form-control form-control-sm"
+                  name="nacionalidad"
+                  placeholder="Ingrese su nacionalidad"
+                  [(ngModel)]="user.nacionalidad"
+                  #nacionalidad="ngModel"
+                  [class.is-invalid]="nacionalidad.invalid && nacionalidad.touched"
+                  required>
+          <small  *ngIf="nacionalidad.invalid && nacionalidad.touched"
+                  class="form-text text-danger">La nacionalidad es obligatoria</small>
         </div>
 
         <div class="mb-3">
           <label class="form-label">
             Fecha de nacimiento<span class="text-danger">*:</span>
           </label>
-          <input  type="date" class="form-control form-control-sm" [(ngModel)]="user.fechaNacimiento" 
-                  name="fechaNacimiento">
+          <input  type="date"
+                  class="form-control form-control-sm"
+                  name="fechaNacimiento"
+                  [(ngModel)]="user.fechaNacimiento"
+                  #fechaNacimiento="ngModel"
+                  [class.is-invalid]="fechaNacimiento.invalid && fechaNacimiento.touched"
+                  required>
+          <small  *ngIf="fechaNacimiento.invalid && fechaNacimiento.touched"
+          class="form-text text-danger">La fecha de nacimiento es obligatoria</small>
         </div>
 
         <div class="mb-3">
           <label class="form-label">
             Celular (10 dígitos)<span class="text-danger">*:</span>
           </label>
-          <input  type="number" class="form-control form-control-sm" [(ngModel)]="user.celular" 
-                  name="celular" placeholder="Ingrese su número de celular">
+          <input  type="number"
+                  class="form-control form-control-sm"
+                  name="celular"
+                  placeholder="Ingrese su número de celular"
+                  [(ngModel)]="user.celular"
+                  #celular="ngModel"
+                  [class.is-invalid]="celular.invalid && celular.touched"
+                  required>
+          <small  *ngIf="celular.invalid && celular.touched"
+                  class="form-text text-danger">El celular es obligatorio</small>
         </div>
 
         <div class="mb-3">
           <label class="form-label">
             Dirección<span class="text-danger">*:</span>
           </label>
-          <input  type="text" class="form-control form-control-sm" [(ngModel)]="user.direccion"
-                  name="direccion" placeholder="Ingrese su calle y número">
+          <input  type="text"
+                  class="form-control form-control-sm"
+                  name="direccion"
+                  placeholder="Ingrese su calle y número"
+                  [(ngModel)]="user.direccion"
+                  #direccion="ngModel"
+                  [class.is-invalid]="direccion.invalid && direccion.touched"
+                  required>
+          <small  *ngIf="direccion.invalid && direccion.touched"
+                  class="form-text text-danger">La direccion es obligatoria</small>
         </div>
 
         <div class="mb-3">
           <label for="cod-postal" class="form-label">
             Código Postal<span class="text-danger">*:</span>
           </label>
-          <input  type="number" class="form-control form-control-sm" [(ngModel)]="user.codigoPostal" 
-                  name="codigoPostal" placeholder="Código Postal">
+          <input  type="number"
+                  class="form-control form-control-sm"
+                  name="codigoPostal"
+                  placeholder="Código Postal"
+                  [(ngModel)]="user.codigoPostal"
+                  #codigoPostal="ngModel"
+                  [class.is-invalid]="codigoPostal.invalid && codigoPostal.touched"
+                  required>
+          <small  *ngIf="codigoPostal.invalid && codigoPostal.touched"
+                  class="form-text text-danger">El código postal es obligatorio</small>
         </div>
 
         <div class="mb-3">
           <label class="form-label">
             Viajando por<span class="text-danger">*:</span>
           </label>
-          <select type="text" class="form-select form-select-sm" 
-                  name="viajandoPor" [(ngModel)]="tramite.viajandoPor">
+          <select type="text"
+                  class="form-select form-select-sm" 
+                  name="viajandoPor"
+                  [(ngModel)]="tramite.viajandoPor"
+                  #viajandoPor="ngModel"
+                  [class.is-invalid]="viajandoPor.invalid && viajandoPor.touched"
+                  required>
             <option value="Aire">Aire</option>
             <option value="Tierra">Tierra</option>
             <option value="Mar">Mar</option>
           </select>
+          <small  *ngIf="viajandoPor.invalid && viajandoPor.touched"
+                  class="form-text text-danger">El tipo de viaje es obligatorio</small>
         </div>
       </div>
 
@@ -83,69 +145,117 @@
           <label class="form-label">
             Email<span class="text-danger">*:</span>
           </label>
-          <input  type="email" class="form-control form-control-sm" [(ngModel)]="user.email" 
-                  name="email" placeholder="Ingrese su correo electrónico">
+          <input  type="email"
+                  class="form-control form-control-sm"
+                  name="email"
+                  placeholder="Ingrese su correo electrónico"
+                  [(ngModel)]="user.email"
+                  #email="ngModel"
+                  [class.is-invalid]="email.invalid && email.touched"
+                  required email>
+          <small  *ngIf="email.invalid && email.touched"
+                  class="form-text text-danger">El email es obligatorio</small>
         </div>
 
         <div class="mb-3">
           <label for="contra" class="form-label">
             Contraseña<span class="text-danger">*:</span>
           </label>
-          <input  type="password" class="form-control form-control-sm" [(ngModel)]="user.password" 
-                  name="password" placeholder="Cree una contraseña">
+          <input  type="password"
+                  class="form-control form-control-sm"
+                  name="password"
+                  placeholder="Cree una contraseña"
+                  [(ngModel)]="user.password"
+                  #password="ngModel"
+                  [class.is-invalid]="password.invalid && password.touched"
+                  required>
+          <small  *ngIf="password.invalid && password.touched"
+                  class="form-text text-danger">La contraseña es obligatorio</small>
         </div>
 
         <div class="mb-3">
           <label class="form-label">
             Confirme contraseña<span class="text-danger">*:</span>
           </label>
-          <input  type="password" class="form-control form-control-sm" 
-                  name="password2" placeholder="Repita contraseña">
+          <input  type="password"
+                  class="form-control form-control-sm" 
+                  name="password2" 
+                  placeholder="Repita contraseña"
+                  [(ngModel)]="user.password2"
+                  #password2="ngModel"
+                  [class.is-invalid]="password2.invalid && 
+                                      (password.value !== password2.value)"
+                  required>
+          <small  *ngIf="password.value !== password2.value"
+                  class="form-text text-danger">Las contraseñas no coinciden</small>
         </div>
 
         <div class="mb-3">
           <label class="form-label">
             Tiempo de estadía<span class="text-danger">*:</span>
           </label>
-          <select type="text" class="form-select form-select-sm" 
-                  name="tiempoEstadia" [(ngModel)]="tramite.tiempoEstadia">
+          <select type="text"
+                  class="form-select form-select-sm" 
+                  name="tiempoEstadia"
+                  [(ngModel)]="tramite.tiempoEstadia"
+                  #tiempoEstadia="ngModel" 
+                  [class.is-invalid]="tiempoEstadia.invalid && tiempoEstadia.touched"
+                  required>
             <option value="Menos de 90 días en EE.UU">Menos de 90 días en EE.UU</option>
             <option value="Más de 90 días en EE.UU">Más de 90 días en EE.UU</option>
             <option value="Indefinido">Indefinido</option>
           </select>
+          <small  *ngIf="tiempoEstadia.invalid && tiempoEstadia.touched"
+                  class="form-text text-danger">El tiempo de estadía es obligatorio</small>
         </div>
 
         <div class="mb-3">
           <label class="form-label">
             Velocidad<span class="text-danger">*:</span>
           </label>
-          <select type="text" class="form-select form-select-sm" 
-                  name="velocidad" [(ngModel)]="tramite.velocidad">
+          <select type="text"
+                  class="form-select form-select-sm" 
+                  name="velocidad" 
+                  [(ngModel)]="tramite.velocidad"
+                  #velocidad="ngModel" 
+                  [class.is-invalid]="velocidad.invalid && velocidad.touched"
+                  required>
             <option value="Trámite Normal">Trámite Normal</option>
             <option value="Trámite Urgente">Trámite Urgente</option>
           </select>
+          <small  *ngIf="velocidad.invalid && velocidad.touched"
+                  class="form-text text-danger">La velocidad del trámite es obligatorio</small>
         </div>
 
         <div class="mb-3">
           <label class="form-label">
             Número de trámites<span class="text-danger">*:</span>
           </label>
-          <select type="text" class="form-select form-select-sm" 
-                  name="numeroTramites" [(ngModel)]="tramite.numeroTramites">
+          <select type="text"
+                  class="form-select form-select-sm" 
+                  name="numeroTramites"
+                  [(ngModel)]="tramite.numeroTramites"
+                  #numeroTramites="ngModel"
+                  [class.is-invalid]="numeroTramites.invalid && numeroTramites.touched"
+                  required>
             <option value="1 Trámite (Yo solo)">1 Trámite (Yo solo)</option>
             <option *ngFor="let i of [2,3,4,5,6]" 
                     [value]="i + ' Trámites'">{{ i }} Trámites</option>
           </select>
+          <small  *ngIf="numeroTramites.invalid && numeroTramites.touched"
+                  class="form-text text-danger">El número de trámites es obligatorio</small>
         </div>
 
         <div class="mb-3">
           <label class="form-label">Número pasaporte</label>
-          <input  type="text" class="form-control form-control-sm" name="numeroPasaporte"
-                  [(ngModel)]="user.numeroPasaporte" placeholder="Ingrese el número de su pasaporte">
+          <input  type="text"
+                  class="form-control form-control-sm"
+                  name="numeroPasaporte"
+                  placeholder="Ingrese el número de su pasaporte"
+                  [(ngModel)]="user.numeroPasaporte">
         </div>
 
-        <button type="submit" class="btn-green" style="margin-top: 40px; width: 70%;" 
-                [disabled]="!visaForm.valid">
+        <button type="submit" class="btn-green" style="margin-top: 40px; width: 70%;">
           <span class="btn-gradient">
             <i class="far fa-check-square fa-lg"></i>
           </span>
